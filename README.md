@@ -6,7 +6,7 @@ A customizable personal portfolio website built with React, TypeScript, and Tail
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
+- Node.js 22 (v22.12 or higher); run `nvm use` if you use nvm
 - npm or yarn
 
 ### Installation
@@ -36,6 +36,22 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## GitHub Pages
+
+The portfolio is configured for https://anasywa.github.io/portofolio/.
+
+1. Push the project, including `.github/workflows/deploy.yml`, to the `main` branch of `anasywa/portofolio`.
+2. Open the repository's **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Open **Actions → Deploy portfolio to GitHub Pages**. Run the workflow manually if needed, and wait for it to succeed.
+
+Future pushes to `main` automatically rebuild and publish the site. The workflow uses Node.js 22 and builds with the repository's base path. Hash routing keeps pages such as `/#/contact` working on refresh.
+
+To check this build locally, run `npm run build:pages`, then `npm run preview -- --base /portofolio/` and open the preview's `/portofolio/` URL.
+
+Public contact links have defaults in the workflow. To customize these or set project repository links, add the `VITE_*` values from `.env.example` under **Settings → Secrets and variables → Actions → Variables**. Add the real project URLs instead of the example URLs.
+
+The music file in `public/audio/` is included by Git so it can be published with the website. The regular `npm run build` command continues to build for hosting at the root of a domain.
 
 ## Customization Guide
 

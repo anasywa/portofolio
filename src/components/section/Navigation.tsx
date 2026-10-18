@@ -113,7 +113,7 @@ const Navigation = () => {
             outline: 'none',
             WebkitTextFillColor: themeColors.colors.pink[500]
           }}
-          onClick={() => window.location.href = '/'}
+          onClick={() => scrollToSection('about')}
           aria-label="A. Nasywa - Go to homepage">
           Andi Nasywa
         </button>

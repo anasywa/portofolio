@@ -92,8 +92,11 @@ function AppContent() {
     <>
       <Navigation />
       <div className="app transition-colors duration-300" style={{ backgroundColor: isDarkMode ? '#101727' : undefined }}>
-        <a href="#main-content" className="skip-link">Skip to main content</a>
-        <main id="main-content" className="main-content">
+        <a href="#main-content" className="skip-link" onClick={(event) => {
+          event.preventDefault();
+          document.getElementById('main-content')?.focus();
+        }}>Skip to main content</a>
+        <main id="main-content" className="main-content" tabIndex={-1}>
           <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -119,7 +122,7 @@ function App() {
 
   const handleEnter = async () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio("/audio/lofi-study.mp3");
+      audioRef.current = new Audio(`${import.meta.env.BASE_URL}audio/lofi-study.mp3`);
       audioRef.current.loop = true;
       audioRef.current.volume = 0.25;
     }

@@ -3,7 +3,10 @@ import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'github-pages'
+    ? (process.env.PAGES_BASE_PATH || '/portofolio/')
+    : '/',
   plugins: [react()],
   resolve: {
     alias: {
@@ -31,4 +34,4 @@ export default defineConfig({
   css: {
     devSourcemap: false,
   },
-})
+}))

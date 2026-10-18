@@ -228,7 +228,7 @@ const About = () => {
                 <button
                   className="hero-action-btn text-sm md:text-base px-4 py-2 md:px-5 md:py-2.5"
                   onClick={() => {
-                    window.open('/CV_A_Nasywa_Atja.pdf', '_blank');
+                    window.open(`${import.meta.env.BASE_URL}CV_A_Nasywa_Atja.pdf`, '_blank', 'noopener,noreferrer');
                   }}
                 >
                   Curriculum Vitae →

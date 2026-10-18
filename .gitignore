@@ -286,6 +286,7 @@ ENV/
 *.avi
 *.mkv
 *.mp3
+!public/audio/*.mp3
 *.wav
 
 # Database dumps
@@ -338,5 +339,4 @@ scripts/*.log
 scripts/tmp/
 scripts/.cache/
 # GitHub files
-.github/
 .gitlab/
